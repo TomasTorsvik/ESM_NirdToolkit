@@ -1,0 +1,4 @@
+Create docker image for use with Nird Toolkit : jupyter notebook
+
+Use base image from 
+https://quay.io/repository/uninett/jupyter-spark?tab=tags

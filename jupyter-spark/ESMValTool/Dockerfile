@@ -15,9 +15,6 @@
 
 FROM quay.io/uninett/jupyter-spark:20190815-ea0ec80
 
-LABEL authors="Tomas Torsvik"
-LABEL maintainer="tomas.torsvik@uib.no"
-
 # Set the working directory to /app
 WORKDIR /app
 
@@ -35,5 +32,17 @@ USER notebook
 RUN conda update -y conda pip
 
 # install environment packages
-RUN conda env update --file environment.yml
+RUN conda env update -n base --file environment.yml
 
+# Install esmvaltool python package
+#RUN cd /app/esmvaltool_v2.0.0b1                             \
+#    && pip install --user .                                 \
+#    && chmod -R 777 /home/notebook/.local
+
+ENV PATH="~/.local/bin:${PATH}"
+
+LABEL maintainer="Tomas Torsvik <tomas.torsvik@uib.no>"     \
+      version="1.0.2"
+
+## # check installation
+## RUN esmvaltool --help

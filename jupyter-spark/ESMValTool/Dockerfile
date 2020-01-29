@@ -13,7 +13,7 @@
 # to determine the latest base image
 #=================================================================================
 
-FROM quay.io/uninett/jupyter-spark:20190815-ea0ec80
+FROM quay.io/uninett/jupyter-spark:20191129-11a74c2
 
 # Set the working directory to /app
 WORKDIR /app
@@ -42,7 +42,7 @@ RUN conda env update -n base --file environment.yml
 ENV PATH="~/.local/bin:${PATH}"
 
 LABEL maintainer="Tomas Torsvik <tomas.torsvik@uib.no>"     \
-      version="1.0.3"
+      version="1.0.4"
 
 ## # check installation
 ## RUN esmvaltool --help
